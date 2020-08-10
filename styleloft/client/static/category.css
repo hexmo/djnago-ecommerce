@@ -1,0 +1,48 @@
+.main-content{
+    margin: 16px 10%;
+}
+
+.main-content h2 {
+    font-size: 24px;
+    color: #F04D6E;
+    margin-bottom: 16px;
+}
+
+.primary-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.primary-content a {
+    width: 23%;
+    margin: 8px 4px;
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.primary-content a:hover {
+    box-shadow: 8px 8px 16px #fc8ce477, -8px -8px 16px hsla(313, 88%, 68%, 0.176);
+}
+
+.primary-content a .card img {
+    width: 100%;
+}
+
+.primary-content a .card h4 {
+    margin: 4px 8px;
+    color: #F04D6E;
+}
+
+.card h5 {
+    margin: 0 0 4px 8px;
+    color: #2A2026;
+}
+
+.primary-content a .card .edit-options {
+    margin: 0 0 8px 8px;
+    display: flex;
+}

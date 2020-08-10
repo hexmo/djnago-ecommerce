@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- css import -->
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'view_product.css' %}">
+{% endblock %}
+<!-- title -->
+{% block title%}{{product.product_name}}{% endblock %}
+{% block main-content%}
+<div class="explorer">
+    <a href="{% url 'category' product.product_category%}"><h3>{{product.product_category}} > </h3></a>
+    <span>{{product.product_name}}</span>
+</div>
+<div class="main-content">
+    <div class="image-container">
+        <img src="{{product.product_photo.url}}" alt="Poduct photo">
+    </div>
+    <div class="description-container">
+        <h2>{{product.product_name}}</h2>
+        <h3>NRs: {{product.product_price}}</h3>
+        <h4><span>Category: </span>{{product.product_category}}</h4>
+        <h4><span>Available sizes:</span>{{product.product_size}}</h4>
+        <h4><span>Brand: </span>{{product.product_brand}}</h4>
+        <h4><span>Material: </span>{{product.product_material}}</h4>
+        <h4><span>Color: </span>{{product.product_color}}</h4>
+        {% if user.is_authenticated %}
+        <div class="add-to-cart" onclick="displayFeatureNotAvailable()">
+            <h3>Add to cart</h3>
+        </div>
+        <script>
+            function displayFeatureNotAvailable(){
+                alert('This feature is currently not available.');
+            }
+        </script>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

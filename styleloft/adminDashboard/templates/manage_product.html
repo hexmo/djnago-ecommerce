@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+<!-- css import -->
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'manage_product.css' %}">
+{% endblock %}
+<!-- title -->
+{% block title%} Manage Product {% endblock %}
+
+<!-- start of body -->
+{% block main-content %}
+<h1>MANAGE PRODUCT</h1>
+<div class="product-container">
+    {% for product in products %}
+    <div class="card">
+        <img src="{{product.product_photo.url}}" alt="Product photo">
+        <h4>{{product.product_name}}</h4>
+        <h5>Nrs. {{product.product_price}}</h5>
+        <div class="edit-options">
+            <a href="{% url 'edit_product' product.id %}" class="a-edit">Edit</a>
+            <a href="{% url 'delete_product' product.id %}" class="a-delete">Delete</a>
+        </div>
+    </div>
+    {% empty %}
+    There are no products available.
+    {% endfor %}
+</div>
+
+
+{% endblock %}

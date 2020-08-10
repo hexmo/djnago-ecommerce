@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FEF6FB;
+}
+
+header {
+    background-color: #F9DDF2;
+    padding: 1px 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 50px;
+}
+
+header a {
+    text-decoration: none;
+    color: #2A2026;
+    font-style: italic;
+    margin-left: 8px;
+}
+
+header a:hover {
+    color: #EB5B78;
+}
+
+footer {
+    background-color: #F9DDF2;
+    border-top: 1px solid #eb5b7811;
+    /* position: fixed;
+    bottom: 0; */
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+}
+
+footer .copy-right {
+    background-color: #EB5B78;
+    text-align: center;
+    color: #fff;
+    padding: 4px;
+}
+
+footer .important-links {
+    padding: 32px 128px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer a {
+    text-decoration: none;
+    color: #2A2026;
+    font-style: italic;
+    margin-left: 8px;
+}
+
+/* dropdown menu */
+
+.dropbtn {
+    background-color: #EB5F7C;
+    color: white;
+    padding: 4px 8px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background-color: #F9DDF2;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 4px 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #EB5B78;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #000;
+}
+
+.category-menu {
+    padding-left: 10%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: left;
+    background-color: #eb5b78f6;
+    border-radius: 0 0 8px 8px;
+}
+
+.category-menu .home-button {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.category-menu .home-button:hover {
+    color: #000;
+}

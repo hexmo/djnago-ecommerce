@@ -1,0 +1,66 @@
+#side-menu #menu-manage-product {
+    color: #D34C77;
+}
+
+#main-content {
+    padding: 16px;
+}
+
+#main-content h1 {
+    font-size: 24px;
+    color: #F04D6E;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 23%;
+    margin: 8px 4px;
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.card:hover {
+    box-shadow: 8px 8px 16px #fc8ce477, -8px -8px 16px hsla(313, 88%, 68%, 0.176);
+}
+
+.card img {
+    width: 100%;
+}
+
+.card h4 {
+    margin: 4px 8px;
+    color: #F04D6E;
+}
+
+.card h5 {
+    margin: 0 0 4px 8px;
+    color: #2A2026;
+}
+
+.card .edit-options {
+    margin: 0 0 8px 8px;
+    display: flex;
+}
+
+.card a {
+    text-decoration: none;
+    margin-right: 8px;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 8px;
+}
+
+.a-edit {
+    background-color: #F04D6E;
+}
+
+.a-delete {
+    background-color: #2A2026;
+}

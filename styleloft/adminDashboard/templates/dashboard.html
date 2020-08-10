@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="/media/logo/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    {% block extrahead %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <title>
+        {% block title%}
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <section id="side-menu">
+        <h2>Dashboard</h2>
+        <a href="{% url 'add_product' %}" id="menu-add-product">Add Product</a>
+        <a href="{% url 'manage_product' %}" id="menu-manage-product">Manage Product</a>
+        <a href="#" id="menu-view-order" id="menu-view-order">View Orders</a>
+    </section>
+    <section id="main-content-holder">
+        <div id="nav-menu">
+            <h3>{{request.user.username}}</h3>
+            <a href="{% url 'user_logout' %}">logout</a>
+        </div>
+        <div id="main-content">
+            {% block main-content %}
+            {% endblock %}
+        </div>
+    </section>
+    <script>
+        setHeight()
+        window.addEventListener('resize', setHeight);
+        function setHeight() {
+            var w = window.innerHeight;
+            // side_menu_bar = document.getElementById('side-menu');
+            document.body.style.height = w + "px";
+        }
+    </script>
+</body>
+
+</html>

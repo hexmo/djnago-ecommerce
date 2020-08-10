@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- css import -->
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'category.css' %}">
+{% endblock %}
+<!-- title -->
+{% block title%} Style Loft | Homepage {% endblock %}
+{% block main-content%}
+<div class="main-content">
+    <h2>{{category}}</h2>
+    <div class="primary-content">
+        {% for product in products %}
+        <a href="{% url 'view_product_details' product.id%}">
+            <div class="card">
+                <img src="{{product.product_photo.url}}" alt="Product photo">
+                <h4>{{product.product_name}}</h4>
+                <h5>Nrs. {{product.product_price}}</h5>
+            </div>
+        </a>
+        {% empty %}
+        <h4>Sorry, there are no products in this category.</h4>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

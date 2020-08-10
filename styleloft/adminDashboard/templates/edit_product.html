@@ -1,0 +1,112 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+<!-- css import -->
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'edit_product.css' %}">
+{% endblock %}
+<!-- title -->
+{% block title%} Edit Product {% endblock %}
+
+<!-- start of body -->
+{% block main-content %}
+
+<div class="form-container">
+    <h1>EDIT PRODUCT</h1>
+    <img id="output_image" src="{{product.product_photo.url}}" />
+    <form action="{% url 'edit_product' product.id%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="product_photo">Product Photo:</label>
+        <input type="file" accept="image/*" onchange="preview_image(event)" name="product_photo">
+        <!-- Product info -->
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" value="{{product.product_name}}" required>
+
+        <label for="product_price">Product Price:</label>
+        <input type="number" id="product_price" name="product_price" value="{{product.product_price}}" required>
+
+        <label for="product_category">Poduct Category:</label>
+        <select id="category" name="product_category" required>
+            <optgroup label="Clothing">
+                <option value="Top & Tshirt" {% if product.product_category == "Top & Tshirt" %} selected {% endif %}>
+                    Top & Tshirt
+                </option>
+                <option value="Hoodie & Sweatshirt" {% if product.product_category == "Hoodie & Sweatshirt" %} selected
+                    {% endif %}>
+                    Hoodie & Sweatshirt
+                </option>
+                <option value="Coat, Sweater & Jacket" {% if product.product_category == "Coat, Sweater & Jacket" %} selected
+                    {% endif %}>Coat, Sweater & Jacket</option>
+                <option value="Pants, Leggings & Trousers" {% if product.product_category == "Pants, Leggings & Trousers" %} selected
+                    {% endif %}>Pants, Leggings & Trousers</option>
+                <option value="Shorts & Skirts" {% if product.product_category == "Shorts & Skirts" %} selected
+                    {% endif %}>
+                    Shorts & Skirts
+                </option>
+                <option value="Lingerie" {% if product.product_category == "Lingerie" %} selected {% endif %}>
+                    Lingerie</option>
+            </optgroup>
+            <optgroup label="Traditional Clothing">
+                <option value="Saree" {% if product.product_category == "Saree" %} selected {% endif %}>Saree
+                </option>
+                <option value="Kurtha" {% if product.product_category == "Kurtha" %} selected {% endif %}>Kutha
+                </option>
+                <option value="Lehenga" {% if product.product_category == "Lehenga" %} selected {% endif %}>Lehenga
+                </option>
+            </optgroup>
+            <optgroup label="Footwears">
+                <option value="Shoe" {% if product.product_category == "Shoe" %} selected {% endif %}>Shoe
+                </option>
+                <option value="Sandal" {% if product.product_category == "Sandal" %} selected {% endif %}>Sandal
+                </option>
+                <option value="Socks" {% if product.product_category == "Socks" %} selected {% endif %}>Socks
+                </option>
+                <option value="Gloves" {% if product.product_category == "Gloves" %} selected {% endif %}>Glove
+                </option>
+            </optgroup>
+            <optgroup label="Makeup & Selfcare">
+                <option value="Haircare" {% if product.product_category == "Haircare" %} selected {% endif %}>
+                    Haircare</option>
+                <option value="Skincare" {% if product.product_category == "Skincare" %} selected {% endif %}>
+                    Skincare</option>
+                <option value="Makeup kit" {% if product.product_category == "Makeup kit" %} selected {% endif %}>
+                    Makeup Kit</option>
+                <option value="Perfume" {% if product.product_category == "Perfume" %} selected {% endif %}>Perfume
+                </option>
+            </optgroup>
+            <optgroup label="Accessories">
+                <option value="Watch" {% if product.product_category == "Watch" %} selected {% endif %}>Watch
+                </option>
+                <option value="Purse" {% if product.product_category == "Purse" %} selected {% endif %}>Purse
+                </option>
+                <option value="Handbag" {% if product.product_category == "Handbag" %} selected {% endif %}>Handbag
+                </option>
+                <option value="Belt" {% if product.product_category == "Belt" %} selected {% endif %}>Belt
+                </option>
+            </optgroup>
+        </select>
+
+        <label for="product_size">Product Size:</label>
+        <input type="text" id="product_size" name="product_size" value="{{product.product_size}}" required>
+        <label for="product_brand">Product Brand:</label>
+        <input type="text" id="product_brand" name="product_brand" value="{{product.product_brand}}" required>
+        <label for="product_material">Product Material:</label>
+        <input type="text" id="product_material" name="product_material" value="{{product.product_material}}" required>
+        <label for="product_color">Product Color:</label>
+        <input type="text" id="product_color" name="product_color" value="{{product.product_color}}" required>
+
+        <!-- submit button -->
+        <button type="submit">Update Product Details</button>
+    </form>
+</div>
+<!-- java script -->
+<script type='text/javascript'>
+    function preview_image(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('output_image');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+{% endblock %}

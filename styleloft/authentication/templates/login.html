@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="/media/logo/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'authentication.css' %}">
+    <meta charset="UTF-8">
+    <title>Style Loft | Login</title>
+</head>
+
+<body>
+    <div class="side-bar">
+        <a href="/">
+            <h1>
+                Style loft
+            </h1>
+        </a>
+    </div>
+    <div class="main-content">
+        <h2>LOG IN</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label><br>
+            <input type="text" name="username" id="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password"><br>
+            {% if pass == 'fail'%}
+            <span>User name or password error.</span><br>
+            {% endif %}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        setHeight()
+        window.addEventListener('resize', setHeight);
+        function setHeight() {
+            var w = window.innerHeight;
+            // side_menu_bar = document.getElementById('side-menu');
+            document.body.style.height = w + "px";
+        }
+    </script>
+</body>
+
+</html>

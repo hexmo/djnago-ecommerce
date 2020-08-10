@@ -1,0 +1,70 @@
+#side-menu #menu-manage-product {
+    color: #D34C77;
+}
+.form-container {
+    margin: 32px 0 0 64px;
+    width: 60%;
+    min-height: 200px;
+    padding: 32px;
+    border-radius: 32px;
+    background-color: #ffffff;
+    box-shadow: -5px -5px 10px rgb(247, 237, 243), 10px 10px 10px rgb(247, 237, 243);
+}
+
+.form-container h1 {
+    font-size: 24px;
+    color: #F04D6E;
+}
+
+#output_image {
+    max-width: 60%;
+    margin: 16px 0;
+}
+
+input {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    width: 100%;
+    background-color: #FEF6FB;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+    margin-bottom: 20px;
+}
+
+select {
+    background-color: #FEF6FB;
+    padding: 10px;
+    height: auto;
+    font-size: 16px;
+    border-radius: 2px;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+label.light {
+    font-weight: 300;
+    display: inline;
+}
+
+button {
+    padding: 8px;
+    color: #FFF;
+    background-color: #F04D6E;
+    font-size: 16px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    margin-bottom: 10px;
+}

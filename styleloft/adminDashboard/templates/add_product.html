@@ -1,0 +1,86 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+<!-- css import -->
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'add_product.css' %}">
+{% endblock %}
+<!-- title -->
+{% block title%} Add Product {% endblock %}
+
+<!-- start of body -->
+{% block main-content %}
+
+<div class="form-container">
+    <h1>ADD PRODUCT</h1>
+    <img id="output_image" />
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="product_photo">Product Photo:</label>
+        <input type="file" accept="image/*" onchange="preview_image(event)" name="product_photo" required>
+        <!-- Product info -->
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" required>
+
+        <label for="product_price">Product Price:</label>
+        <input type="number" id="product_price" name="product_price" required>
+
+        <label for="product_category">Poduct Category:</label>
+        <select id="category" name="product_category">
+            <optgroup label="Clothing">
+                <option value="Top & Tshirt">Top & Tshirt</option>
+                <option value="Hoodie & Sweatshirt">Hoodie & Sweatshirt</option>
+                <option value="Coat, Sweater & Jacket">Coat, Sweater & Jacket</option>
+                <option value="Pants, Leggings & Trousers">Pants, Leggings & Trousers</option>
+                <option value="Shorts & Skirts">Shorts & Skirts</option>
+                <option value="Lingerie">Lingerie</option>
+            </optgroup>
+            <optgroup label="Traditional Clothing">
+                <option value="Saree">Saree</option>
+                <option value="Kurtha">Kutha</option>
+                <option value="Lehenga">Lehenga</option>
+            </optgroup>
+            <optgroup label="Footwears">
+                <option value="Shoe">Shoe</option>
+                <option value="Sandal">Sandal</option>
+                <option value="Socks">Socks</option>
+                <option value="Gloves">Glove</option>
+            </optgroup>
+            <optgroup label="Makeup & Selfcare">
+                <option value="Haircare">Haircare</option>
+                <option value="Skincare">Skincare</option>
+                <option value="Makeup kit">Makeup Kit</option>
+                <option value="Perfume">Perfume</option>
+            </optgroup>
+            <optgroup label="Accessories">
+                <option value="Watch">Watch</option>
+                <option value="Purse">Purse</option>
+                <option value="Handbag">Handbag</option>
+                <option value="Belt">Belt</option>
+            </optgroup>
+        </select>
+
+        <label for="product_size">Product Size:</label>
+        <input type="text" id="product_size" name="product_size" required>
+        <label for="product_brand">Product Brand:</label>
+        <input type="text" id="product_brand" name="product_brand" required>
+        <label for="product_material">Product Material:</label>
+        <input type="text" id="product_material" name="product_material" required>
+        <label for="product_color">Product Color:</label>
+        <input type="text" id="product_color" name="product_color" required>
+
+        <!-- submit button -->
+        <button type="submit">Add Product</button>
+    </form>
+</div>
+<!-- java script -->
+<script type='text/javascript'>
+    function preview_image(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('output_image');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="/media/logo/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block extrahead %}
+    {% endblock %}
+    <title>
+        {% block title%}
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="/media/logo/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="account-options">
+            {% if user.is_authenticated %}
+            <a href="#">MY CART</a>
+            <a href="{% url 'user_logout' %}">LOGOUT</a>
+            {% else %}
+            <a href="{% url 'user_login' %}">LOGIN</a>
+            <a href="{% url 'user_signup' %}">SIGNUP</a>
+            {% endif %}
+        </div>
+    </header>
+    <div class="category-menu">
+        <a href="/" class="home-button">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Clothing</button>
+            <div class="dropdown-content">
+                <a href="{% url 'category' 'Top & Tshirt'%}">Top & Tshirt</a>
+                <a href="{% url 'category' 'Hoodie & Sweatshirt'%}">Hoodie & Sweatshirt</a>
+                <a href="{% url 'category' 'Coat, Sweater & Jacket'%}">Coat, Sweater & Jacket</a>
+                <a href="{% url 'category' 'Pants, Leggings & Trousers'%}">Pants, Leggings & Trousers</a>
+                <a href="{% url 'category' 'Shorts & Skirts'%}">Shorts & Skirts</a>
+                <a href="{% url 'category' 'Lingerie'%}">Lingerie</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Traditional Clothing</button>
+            <div class="dropdown-content">
+                <a href="{% url 'category' 'Saree'%}">Saree</a>
+                <a href="{% url 'category' 'Kurtha'%}">Kurtha</a>
+                <a href="{% url 'category' 'Lehenga'%}">Lehenga</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Footwears</button>
+            <div class="dropdown-content">
+                <a href="{% url 'category' 'Shoe'%}">Shoe</a>
+                <a href="{% url 'category' 'Sandal'%}">Sandal</a>
+                <a href="{% url 'category' 'Socks'%}">Socks</a>
+                <a href="{% url 'category' 'Glove'%}">Glove</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Makeup & Selfcare</button>
+            <div class="dropdown-content">
+                <a href="{% url 'category' 'Haircare'%}">Haircare</a>
+                <a href="{% url 'category' 'Skincare'%}">Skincare</a>
+                <a href="{% url 'category' 'Makeup Kit'%}">Makeup Kit</a>
+                <a href="{% url 'category' 'Perfume'%}">Perfume</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Accessories</button>
+            <div class="dropdown-content">
+                <a href="{% url 'category' 'Watch'%}">Watch</a>
+                <a href="{% url 'category' 'Purse'%}">Purse</a>
+                <a href="{% url 'category' 'Handbag'%}">Handbag</a>
+                <a href="{% url 'category' 'Belt'%}">Belt</a>
+            </div>
+        </div>
+    </div>
+    {% block main-content%}
+    {% endblock %}
+    <footer>
+        <div class="important-links">
+            <a href="#">Careers</a>
+            <a href="#">Sell with us</a>
+            <a href="#">Contact</a>
+            <a href="#">About us</a>
+        </div>
+        <div class="copy-right">
+            &copy; styleloft.com
+        </div>
+    </footer>
+</body>
+
+</html>
